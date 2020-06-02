@@ -2,12 +2,12 @@
 **pose後台**<br />
 開啟專案後需要登入資料庫帳密
 後台的部分之後還會再更新的<br />
-![image](https://github.com/huang7017/Mysql_pos_Memanager/tree/master/image/posmlog.PNG?raw=true)<br />
-![image](https://github.com/huang7017/Mysql_pos_Memanager/tree/master/image/posMangement.PNG?raw=true)<br />
+![image](https://github.com/huang7017/Mysql_pos_Memanager/blob/master/image/posmlog.PNG)<br />
+![image](https://github.com/huang7017/Mysql_pos_Memanager/blob/master/image/posMangement.PNG)<br />
 **Pose**
 connect的部分需要 輸入密碼
 之後會注重於資訊安全的部分<br />
-![image](https://github.com/huang7017/Mysql_pos_Memanager/tree/master/image/Pos.PNG?raw=true)<br />
+![image](https://github.com/huang7017/Mysql_pos_Memanager/blob/master/image/Pos.PNG)<br />
 
 **下個版本需要改進的**
 ui介面
