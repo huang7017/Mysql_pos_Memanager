@@ -7,7 +7,7 @@
 **Pose**
 connect的部分需要 輸入密碼
 之後會注重於資訊安全的部分<br />
-![image](https://github.com/huang7017/Mysql_pos_Memanager/blob/master/image/Pos.PNG)<br />
+![image](https://github.com/huang7017/Mysql_pos_Memanager/blob/master/image/Pos.png)<br />
 
 **下個版本需要改進的**
 ui介面
