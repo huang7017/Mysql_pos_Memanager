@@ -109,25 +109,35 @@ namespace pos1
             MySqlDataReader reader = sel(str);
             conn.Close();
             ArrayList list = new ArrayList();
-            while (reader.Read())//初始索引是-1，執行讀取下一行資料，返回值是bool
+            try
             {
-                list.Add(reader.GetString(m));
+                while (reader.Read())//初始索引是-1，執行讀取下一行資料，返回值是bool
+                {
+                    list.Add(reader.GetString(m));
+                }
             }
+            catch(NullReferenceException)
+            {
+                return null;
+            }
+
             return list;
         }
         private void OderButtons_Click(object sender, EventArgs e)
         {
 
             ArrayList list = new ArrayList();
-            list.Add(getOder("SELECT commodityNumber FROM inventory where(commodity = \"" + (sender as Button).Content + "\" and commodityQuantity > 0)", "commodityNumber")[0]);
-            list.Add(getOder("SELECT commodityCost FROM inventory where(commodity = \"" + (sender as Button).Content + "\" and commodityQuantity > 0)", "commodityCost")[0]);
-            if (list[0] == null)
-                MessageBox.Show("沒貨");
-            else
+            try
             {
+                list.Add(getOder("SELECT commodityNumber FROM inventory where(commodity = \"" + (sender as Button).Content + "\" and commodityQuantity > 0)", "commodityNumber")[0]);
+                list.Add(getOder("SELECT commodityCost FROM inventory where(commodity = \"" + (sender as Button).Content + "\" and commodityQuantity > 0)", "commodityCost")[0]);
                 commoditytextBox.Text = (sender as Button).Content.ToString();
                 QuantitytextBox.Text = "1";
                 CostTextBox.Text = list[1].ToString();
+            }
+            catch(ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("沒貨");
             }
         }
         TextBox t;
@@ -155,16 +165,24 @@ namespace pos1
         {
             QuantitytextBox.IsEnabled = false;
             CostTextBox.IsEnabled = false;
+            ArrayList list = new ArrayList();
             try
             {
-                dataGrid.Items.Add(new { A = commoditytextBox.Text.ToString(), B = QuantitytextBox.Text.ToString(), C = CostTextBox.Text.ToString() });
+                list.Add(getOder("SELECT sum(commodityQuantity) FROM inventory where commodity = \"" + commoditytextBox.Text + "\"", "sum(commodityQuantity)")[0]);
+                if (int.Parse(QuantitytextBox.Text) <= int.Parse(list[0].ToString()))
+                {
+                    dataGrid.Items.Add(new { A = commoditytextBox.Text.ToString(), B = QuantitytextBox.Text.ToString(), C = CostTextBox.Text.ToString() });
+                    total += int.Parse(QuantitytextBox.Text) * int.Parse(CostTextBox.Text);
+                    TotalBox.Text = total.ToString();
+                }
+                else
+                    MessageBox.Show("庫存數量:"+ list[0].ToString()+"\n超過庫存數量:" + (int.Parse(QuantitytextBox.Text) - int.Parse(list[0].ToString())));
             }
             catch (ArgumentException ex)
             {
                 MessageBox.Show("" + ex);
             }
-            total += int.Parse(QuantitytextBox.Text) * int.Parse(CostTextBox.Text);
-            TotalBox.Text = total.ToString();
+            list.Clear();
         }
 
         private void Button_Enter_Click(object sender, RoutedEventArgs e)
