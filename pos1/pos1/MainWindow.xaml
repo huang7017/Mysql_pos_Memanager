@@ -1,0 +1,154 @@
+﻿<Window x:Name="wimdows" x:Class="pos1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pos1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="504" Width="1106.689" WindowStyle="None" AllowsTransparency="True">
+    <Viewbox Stretch="Fill" >
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="841*"/>
+                <ColumnDefinition Width="258*"/>
+            </Grid.ColumnDefinitions>
+            <WrapPanel Orientation="Vertical" Background="#FFF0CECE" Grid.ColumnSpan="2">
+
+                <Grid Height="502" Width="959">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="477*"/>
+                        <ColumnDefinition Width="482*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="button_Enter" Content="結帳" HorizontalAlignment="Left" Height="61" Margin="10,282,0,0" VerticalAlignment="Top" Width="136" RenderTransformOrigin="0.568,-1.457" Grid.Column="1" Background="#FFECEC37" FontSize="18" Click="Button_Enter_Click"/>
+                    <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="298" Margin="60,139,0,0" VerticalAlignment="Top" Width="398" AutoGenerateColumns="False" ItemsSource="{Binding SimpleCollection}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="飲料"  Binding="{Binding A}" Width="*"/>
+                            <DataGridTextColumn Header="數量" Binding="{Binding B}" Width="*"/>
+                            <DataGridTextColumn Header="金額" Binding="{Binding C}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TextBox x:Name="commoditytextBox" HorizontalAlignment="Left" Height="28" Margin="70,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" IsEnabled="False"/>
+                    <TextBox x:Name="QuantitytextBox" HorizontalAlignment="Left" Height="28" Margin="171,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" IsEnabled="False" MouseLeftButtonDown="MouseEnter"/>
+                    <TextBox x:Name="CostTextBox" HorizontalAlignment="Left" Height="28" Margin="280,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" IsEnabled="False" MouseLeftButtonDown="MouseEnter"/>
+                    <TextBox x:Name="TotalBox" HorizontalAlignment="Left" Height="28" Margin="382,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" IsEnabled="False"/>
+                    <Button x:Name="button_Exit" Content="退出" HorizontalAlignment="Left" Height="42" Margin="362,395,0,0" VerticalAlignment="Top" Width="99" RenderTransformOrigin="0.568,-1.457" Grid.Column="1" Background="#FFE09B47" FontSize="16" Click="Button_Exit_Click"/>
+                    <Button x:Name="button_Edite" Content="修改" HorizontalAlignment="Left" Height="42" Margin="10,395,0,0" VerticalAlignment="Top" Width="99" RenderTransformOrigin="0.568,-1.457" Grid.Column="1" Background="#FF9A9B97" FontSize="16" Click="Button_Edite_Click"/>
+                    <Button x:Name="Button_Number_8" Content="8" HorizontalAlignment="Left" Height="42" Margin="362,235,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="0.568,-1.457" Grid.Column="1" Click="buttonNumber">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Button_Number_7" Content="7" HorizontalAlignment="Left" Height="41" Margin="409,189,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="0.568,-1.457" Grid.Column="1" Click="buttonNumber">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Button_Number_6" Content="6" HorizontalAlignment="Left" Height="41" Margin="362,189,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="0.568,-1.457" Grid.Column="1" Click="buttonNumber">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Button_Number_5" Content="5" HorizontalAlignment="Left" Height="42" Margin="409,139,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="0.568,-1.457" Grid.Column="1" Click="buttonNumber">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Button_Number_4" Content="4" HorizontalAlignment="Left" Height="42" Margin="362,139,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="0.568,-1.457" Grid.Column="1" Click="buttonNumber">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Button_Number_3" Content="3" HorizontalAlignment="Left" Height="42" Margin="409,86,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="0.568,-1.457" Grid.Column="1" Click="buttonNumber">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Button_Number_2" Content="2" HorizontalAlignment="Left" Height="42" Margin="362,86,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="0.568,-1.457" Grid.Column="1" Click="buttonNumber">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Button_Number_1" Content="1" HorizontalAlignment="Left" Height="46" Margin="409,33,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="0.568,-1.457" Grid.Column="1" Click="buttonNumber">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Button_Number_0" Content="0" HorizontalAlignment="Left" Height="46" Margin="362,33,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="0.568,-1.457" Grid.Column="1" Click="buttonNumber">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Button_Number_9" Content="9" HorizontalAlignment="Left" Height="42" Margin="409,235,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="0.568,-1.457" Grid.Column="1" Click="buttonNumber">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                                <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                                <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="button_ok" Content="確認" HorizontalAlignment="Left" Height="42" Margin="126,395,0,0" VerticalAlignment="Top" Width="99" RenderTransformOrigin="0.568,-1.457" Grid.Column="1"  Background="#FFA8A7A2" FontSize="16" Click="Button_ok_Click"/>
+                    <Button x:Name="button_clear" Content="取消" HorizontalAlignment="Left" Height="42" Margin="247,395,0,0" VerticalAlignment="Top" Width="99" RenderTransformOrigin="0.568,-1.457" Grid.Column="1"  Background="#FFE08240" FontSize="16" Click="Button_clear_Click"/>
+                    <Grid Height="49" VerticalAlignment="Top" Margin="70,27,19,0">
+                        <Label Content="飲料&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,24,0,0"/>
+                        <Label Content="數量&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="118,24,0,0"/>
+                        <Label Content="總額&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="331,24,0,0"/>
+                        <Label Content="金額&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="228,24,0,0"/>
+                    </Grid>
+                    <ScrollViewer Grid.Column="1" Margin="10,33,136,225">
+                        <WrapPanel x:Name="OderButton" />
+                    </ScrollViewer>
+
+                </Grid>
+
+            </WrapPanel>
+
+        </Grid>
+    </Viewbox>
+</Window>
