@@ -210,7 +210,7 @@ namespace pos1
             QuantitytextBox.Text = null;
             CostTextBox.Text = null;
             TotalBox.Text = null;
-
+            total = 0;
             
             conn.Close();
         }
